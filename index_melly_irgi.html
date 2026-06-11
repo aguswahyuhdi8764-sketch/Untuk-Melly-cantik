@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Untuk Melly ❤️</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+body{overflow:hidden;background:linear-gradient(135deg,#ff9a9e,#fecfef);height:100vh;display:flex;justify-content:center;align-items:center}
+.card{background:#fff;width:90%;max-width:450px;padding:30px;border-radius:25px;box-shadow:0 10px 30px rgba(0,0,0,.15);text-align:center;position:relative;z-index:2}
+.hidden{display:none}
+h1,h2{color:#ff4f81;margin-bottom:15px}
+p{margin-bottom:20px;line-height:1.6}
+button{padding:12px 24px;border:none;border-radius:12px;cursor:pointer;font-size:16px;margin:10px;background:#ff4f81;color:white}
+input,textarea{width:100%;padding:12px;margin:8px 0;border-radius:10px;border:1px solid #ddd}
+.heart{position:absolute;font-size:24px;animation:fall linear forwards;pointer-events:none}
+@keyframes fall{from{transform:translateY(-100px);opacity:1}to{transform:translateY(110vh);opacity:0}}
+#noBtn{position:relative}
+</style>
+</head>
+<body>
+<div class="card">
+<div id="p1"><h1>Hai Melly Cantik ❤️</h1><p>Aku punya sesuatu yang ingin aku sampaikan...</p><button onclick="nextPage(2)">Lanjut</button></div>
+<div id="p2" class="hidden"><h2>😊</h2><p>Sebenarnya aku agak gugup bikin ini.</p><button onclick="nextPage(3)">Lanjut</button></div>
+<div id="p3" class="hidden"><h2>❤️</h2><p>Sejak kenal kamu, hari-hariku jadi lebih berwarna.</p><button onclick="nextPage(4)">Lanjut</button></div>
+<div id="p4" class="hidden"><h2>🥰</h2><p>Aku ingin mengenalmu lebih dekat lagi.</p><button onclick="nextPage(5)">Lanjut</button></div>
+<div id="p5" class="hidden"><h2>Isi dulu ya cantik ❤️</h2><input placeholder="Nama"><textarea placeholder="Pesan untuk Irgi"></textarea><button onclick="nextPage(6)">Kirim</button></div>
+<div id="p6" class="hidden"><h2>Melly ❤️</h2><p>Mau nggak kasih kesempatan buat Irgi lebih dekat sama kamu?</p><button onclick="yesAnswer()">Mau ❤️</button><button id="noBtn">Tidak 😅</button></div>
+<div id="p7" class="hidden"><h1>🎉 YEAYYY 🎉</h1><p>Terima kasih sudah menjawab ❤️</p><h2>Dari Irgi ❤️</h2></div>
+</div>
+<script>
+function nextPage(n){for(let i=1;i<=7;i++){document.getElementById('p'+i)?.classList.add('hidden')}document.getElementById('p'+n).classList.remove('hidden')}
+const noBtn=document.getElementById('noBtn');
+noBtn.addEventListener('mouseover',()=>{noBtn.style.position='fixed';noBtn.style.left=Math.random()*(window.innerWidth-150)+'px';noBtn.style.top=Math.random()*(window.innerHeight-80)+'px';});
+function yesAnswer(){nextPage(7);}
+setInterval(()=>{const h=document.createElement('div');h.className='heart';h.innerHTML='❤️';h.style.left=Math.random()*100+'vw';h.style.animationDuration=(Math.random()*3+3)+'s';document.body.appendChild(h);setTimeout(()=>h.remove(),6000);},400);
+</script>
+</body>
+</html>
